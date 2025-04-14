@@ -1,6 +1,5 @@
 {
   "name": "users-nataliewatkins-documents-github-astro-poc",
-  "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -9,6 +8,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@uswds/uswds": "3.12.0",
     "astro": "^5.6.2"
+  },
+  "devDependencies": {
+    "@uswds/compile": "^1.2.2"
   }
 }
