@@ -10,8 +10,8 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "#uswds/*": [
-        "assets/uswds/*"
+      "#assets/*": [
+        "assets/*"
       ]
     }
   }
