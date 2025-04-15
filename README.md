@@ -17,4 +17,4 @@ All commands are run from the root of the project, from a terminal:
 
 Removed `"type": "module",` from `package.json`. Modules are not compatible with the gulpfile, which is necessary to support USWDS.
 
-Moved USWDS sass folder from root to ./public subdirectory and added path on gulpfile to 
+Moved USWDS css mapping to /public and added paths in gulpfile 
