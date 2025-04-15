@@ -4,15 +4,14 @@ const uswds = require("@uswds/compile");
 uswds.settings.version = 3;
 
 /** Paths **/
-uswds.settings.compile.sassSourcemaps	
-uswds.paths.dist.img = "./public/uswds/img"
-uswds.paths.dist.fonts = "./public/uswds/fonts"
-uswds.paths.dist.js = "./public/uswds/js"
-uswds.paths.dist.css = "./public/uswds/css"
+uswds.paths.dist.img = "./src/assets/uswds/images"
+uswds.paths.dist.fonts = "./src/assets/uswds/fonts"
+uswds.paths.dist.js = "./src/assets/uswds/js"
+uswds.paths.dist.css = "./src/assets/uswds/css"
 
 /** Exports **/
-/* exports.init = uswds.init; // Use init only once */
+// exports.init = uswds.init; // Use init only once
 exports.compile = uswds.compile;
 exports.watch = uswds.watch;
 exports.updateUswds = uswds.updateUswds;
-
+exports.copyAssets = uswds.copyAssets;

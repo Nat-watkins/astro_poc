@@ -1,6 +1,7 @@
 ---
+import "../sass/styles.scss";
+
 const pageTitle = "API Documentation";
-import '/sass/styles.scss'
 ---
 
 <html lang="en">
@@ -10,15 +11,23 @@ import '/sass/styles.scss'
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+
+		<script src="#uswds/js/uswds-init.js"></script>
 	</head>
 	<body>
 		<a href="/">Home</a>
 		<a href="/about/">About</a>
-		<a href="/docs/">Docs</a>		
+		<a href="/docs/">Docs</a>
 		<h1>{pageTitle}</h1>
-        <p>I am evaluating if a blog schema makes any sense at this stage.</p>
+		<p>I am evaluating if a blog schema makes any sense at this stage.</p>
 		<ul>
-			<li><a href="/docs/comparison-bcda-cclf-files//">Comparison of BCDA and CCLF Files</a></li>
+			<li>
+				<a href="/docs/comparison-bcda-cclf-files//"
+					>Comparison of BCDA and CCLF Files</a
+				>
+			</li>
 		</ul>
+
+		<script src="#uswds/js/uswds.js"></script>
 	</body>
 </html>
