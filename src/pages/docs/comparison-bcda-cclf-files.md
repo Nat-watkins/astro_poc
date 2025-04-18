@@ -2,7 +2,7 @@
 title: 'Comparison of BCDA and CCLF Files'
 description: ''
 ---
-<link rel="stylesheet" href="/path/to/compiled/uswds.css">
+<link rel="stylesheet" href="./node_modules/@uswds/uswds/dist/css/uswds.css">
 
 # Comparison of BCDA and CCLF Files
 

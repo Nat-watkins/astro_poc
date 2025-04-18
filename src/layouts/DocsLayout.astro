@@ -1,6 +1,8 @@
 ---
+import Banner from "../components/Banner.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "#assets/sass/styles.scss";
-
 const pageTitle = "API Documentation";
 ---
 
@@ -11,23 +13,14 @@ const pageTitle = "API Documentation";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
-
 		<script src="#assets/uswds/js/uswds-init.js"></script>
 	</head>
 	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/docs/">Docs</a>
-		<h1>{pageTitle}</h1>
-		<p>I am evaluating if a blog schema makes any sense at this stage.</p>
-		<ul>
-			<li>
-				<a href="/docs/comparison-bcda-cclf-files//"
-					>Comparison of BCDA and CCLF Files</a
-				>
-			</li>
-		</ul>
-
 		<script src="#assets/uswds/js/uswds.js"></script>
+		<Banner />
+		<Header />
+		<h1>{pageTitle}</h1>
+		<slot />
+		<Footer />
 	</body>
 </html>

@@ -1,4 +1,8 @@
 ---
+import Banner from "../components/Banner.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "#assets/sass/styles.scss";
 const pageTitle = "About BCDA";
 ---
 
@@ -9,13 +13,14 @@ const pageTitle = "About BCDA";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+        <script src="#assets/uswds/js/uswds-init.js"></script>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-		<a href="/docs/">Docs</a>		
+		<Banner />
+		<Header />
 		<h1>{pageTitle}</h1>
-        <p>BCDA is a RESTful API that provides access to beneficiary claims data for the Medicare program. It allows developers to build applications that can retrieve and analyze this data in a secure and efficient manner.</p>
-        <button>Cool</button>
+        <script src="#assets/uswds/js/uswds.js"></script>
+		<Footer />
 	</body>
 </html>
+
