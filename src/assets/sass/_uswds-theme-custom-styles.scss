@@ -21,3 +21,60 @@ i.e.
 */
 
 @use "uswds-core" as *;
+
+body {
+
+// USWDS doesn't apply styles to some elements unless they're direct children
+// of .usa-prose (this sets defaults that utility classes can override).
+   p {
+     @include typeset-p-base;
+   }
+ 
+   h1, h2, h3, h4, h5, h6 {
+     @include typeset-heading-base;
+     text-wrap: balance;
+   }
+ 
+   $elements: h1, h2, h3, h4, h5, h6, p, ul, ol;
+   @each $element in $elements {
+     #{$element} {
+       & + {
+         @each $element in $elements {
+           #{$element} {
+             margin-top: $theme-paragraph-margin-top;
+             margin-bottom: 0;
+           }
+         }
+       }
+     }
+   }
+ 
+   * + {
+     h1, h2, h3, h4, h5, h6 {
+       margin-top: $theme-heading-margin-top;
+     }
+   }
+ 
+   h1 { @include h1; }
+   h2 { @include h2; }
+   h3 { @include h3; }
+   h4 { @include h4; }
+   h5 { @include h5; }
+   h6 { @include h6; }
+ 
+   a { @include typeset-link; }
+ 
+   ul:not([class]),
+   ol:not([class]) {
+     @include usa-list;
+     li { @include usa-list-item; }
+   }
+
+   // URLs and code text can interfere with responsiveness
+   overflow-wrap: break-word;
+}
+
+// Removes default background color from card image
+.usa-card__img {
+   background-color: transparent;
+}

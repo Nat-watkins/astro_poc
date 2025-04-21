@@ -1,8 +1,8 @@
 ---
+layout: ../../layouts/DocsLayout.astro
 title: 'Comparison of BCDA and CCLF Files'
-description: ''
+description: 'This is a test'
 ---
-<link rel="stylesheet" href="./node_modules/@uswds/uswds/dist/css/uswds.css">
 
 # Comparison of BCDA and CCLF Files
 
