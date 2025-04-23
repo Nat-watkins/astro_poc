@@ -8,7 +8,7 @@ description: 'This is a test'
 
 While Beneficiary Claims Data API (BCDA) and Claim and Claim Line Feed (CCLF) files both offer Medicare Parts A, B, and D claims data, there are some differences between the format and update frequency. 
 
-Model entities can use either or both source(s) for data insights. It’s important to choose what works best for your organization's workflow and needs. <a href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Download the Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</a> to review how fields map between BCDA and CCLF files.
+Model entities can use either or both source(s) for data insights. It’s important to choose what works best for your organization's workflow and needs. <Link href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Download the Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</Link> to review how fields map between BCDA and CCLF files.
 
 ## What are the differences?
 
@@ -20,7 +20,7 @@ CCLF files update monthly using 12 flat files. BCDA updates adjudicated claims w
 
 CCLF files focus more on detailed demographic and claims processing context, while BCDA provides a snapshot of enrollees’ claims database. 
 
-BCDA uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</a> format as required by Medicare. This results in differences during data mapping. 
+BCDA uses the <Link href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="noopener noreferrer">Bulk Fast Healthcare Interoperability Resources (FHIR)</Link> format as required by Medicare. This results in differences during data mapping. 
 
 ## Summary of differences
 
@@ -41,7 +41,7 @@ BCDA uses the <a href="https://hl7.org/fhir/uv/bulkdata/" target="blank" rel="no
         <tr>
             <th>Claims data format</th>
             <td data-label="BCDA">Interoperable and machine-readable, using FHIR R4 or STU3 format.</td>
-            <td data-label="CCLF">Human-readable, using <a href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">fixed-width tabular files.</a></td>
+            <td data-label="CCLF">Human-readable, using <Link href="https://www.cms.gov/files/document/cclf-information-packet.pdf" target="blank" rel="noopener noreferrer">fixed-width tabular files.</Link></td>
         </tr>
         <tr>
             <th>Claims data source</th>

@@ -8,6 +8,8 @@
     "dist"
   ],
   "compilerOptions": {
+    "allowJs": true,
+    "strictNullChecks": true,
     "baseUrl": "src",
     "paths": {
       "#assets/*": [

@@ -1,0 +1,79 @@
+---
+title: "API Documentation"
+description: ""
+---
+
+Beneficiary Claims Data API (BCDA) uses [Fast Healthcare Interoperability Resources (FHIR)](https://hl7.org/fhir/R4/overview.html) to share claims data. You can use a variety of tools or client software programs to access the sandbox and production environments.
+
+## Getting started
+
+<ProcessList>
+  <ProcessListItem heading="Learn about BCDA">
+      Explore the [documentation](/api-documentation#endpoints), [Data Dictionary](/bcda-data#data-dictionary), and [sample files](/bcda-data#sample-files).
+  </ProcessListItem>
+  <ProcessListItem heading="Use the sandbox">
+      The sandbox environment allows anyone to try the API and download test claims data. Learn how to [get a bearer token](/get-a-bearer-token) and [access the sandbox](/access-claims-data).  
+  </ProcessListItem>
+  <ProcessListItem class="docs-final-item" heading="Get production access">
+      [Eligible model entities](/index#eligible-model-entities) must have [production credentials](/production-access) to access their enrollees' claims data. 
+  </ProcessListItem>
+</ProcessList>
+
+## Endpoints
+
+Endpoints request data by [resource type](/bcda-data.html#resource-types). Data is returned for enrollees attributed to your organization, but you can't make requests for individual patient data. 
+
+### /Metadata
+
+Request the [FHIR CapabilityStatement](https://hl7.org/fhir/R4/capabilitystatement.html) for basic information on the API, like its version and whether it's currently active. This does not require authorization. 
+
+### /Group
+Use the [/Group endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients) to request the ExplanationOfBenefit, Patient, and Coverage resource types. For partially adjudicated claims, this includes Claim and ClaimResponse. Provide the `all` or `runout` identifier to indicate whose data you'd like returned: 
+
+- /Group/all: returns data for all Medicare enrollees currently attributed to your model entity
+- /Group/runout: returns data for Medicare enrollees attributed to your model entity during the previous year, but not the current year. The data will have a service date no later than December 31 of the previous year.
+
+Using the [_since parameter](/filter-claims-data.html) with /Group will return resources updated after the date provided for existing enrollees and all resources for newly attributed enrollees. 
+
+This lets you retrieve all new claims data with a single request. If you don't apply _since, BCDA will return data as early as 2014.
+
+### /Patient
+
+Similar to /Group/all, use the [/Patient endpoint](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---all-patients) to request data for all Medicare enrollees currently attributed to your model entity.
+
+The difference is using the _since parameter with /Patient will return resources updated after the date provided for existing and newly attributed enrollees. 
+
+Newly attributed enrollees are those who've been assigned to your model entity since your last attribution date. If you don't apply _since, BCDA will return data as early as 2014.
+
+### /Jobs
+
+Request information about previous job requests, including the job ID, creation time, completion time, and original job request. 
+
+If you can't remember the job ID after starting a job, use this endpoint to retrieve the ID. Each entry in the resource bundle is in the [FHIR Task](https://www.hl7.org/fhir/task.html) format.
+
+### /Attribution_Status
+
+Request a datetime and timestamp for when your enrollee list or runout files were last updated. 
+
+Attribution files are updated once per month. It can be useful to retrieve all claims data for newly attributed enrollees to get a full picture of their health histories. 
+
+## Parameters
+
+Use parameters during job requests to filter or specify the resources returned:
+
+- **The _type parameter:** Limit your request to specific resource types. Instead of receiving data from all available resource types, specify 1 or more. 
+
+- **The _since parameter:** Apply a date boundary to your requests. Instead of receiving the full record of historical data, filter for resources last updated after a specified date. 
+
+[Explore how to filter claims data.](/filter-claims-data)
+
+## Additional resources
+
+BCDA provides Medicare claims data using the NDJSON format.
+
+- [FHIR/HL7](https://www.hl7.org/fhir/)
+- [Bulk FHIR specification](http://build.fhir.org/ig/HL7/VhDir/bulk-data.html)
+- [Blue Button Implementation Guide](https://bluebutton.cms.gov/assets/ig/index.html)
+- Intro to the [JSON Format](https://www.json.org/json-en.html) and [NDJSON](https://github.com/ndjson/ndjson-spec/)
+- [JSON format viewer/validator (raw text/JSON format converter)](https://jsonlint.com/)
+- [Intro to valid FHIR formats](https://hl7.org/fhir/R4/validation.html)

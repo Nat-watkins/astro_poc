@@ -7,8 +7,9 @@ import { render } from "astro:content";
 import ProcessList from "components/process-list.astro";
 import ProcessListItem from "components/process-list-item.astro";
 import CopySnippet from "components/copy-snippet.astro";
+import Alert from "components/alert.astro";
 
-const entry = await getEntry("pages", "api-documentation");
+const entry = await getEntry("pages", "get-a-bearer-token");
 if (!entry) {
 	throw new Error("Page not found");
 }
@@ -26,6 +27,7 @@ const { Content, headings } = await render(entry);
 				ProcessList,
 				ProcessListItem,
 				CopySnippet,
+				Alert,
 			}}
 		/>
 	</main>

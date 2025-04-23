@@ -1,0 +1,37 @@
+---
+import LaunchSvg from "#assets/uswds/img/usa-icons/launch.svg";
+
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  showIcon?: boolean;
+}
+
+const { href, showIcon = true, ...props } = Astro.props;
+const site = Astro.site;
+
+let isExternal = false;
+try {
+  const { hostname } = new URL(href || "");
+  isExternal = hostname !== site?.hostname;
+} catch {
+  isExternal = false;
+}
+---
+
+<a
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener" : undefined}
+  {...props}
+>
+  <slot />{
+    isExternal && showIcon ? (
+      <LaunchSvg
+        height={16}
+        width={16}
+        fill="currentColor"
+        style="vertical-align:middle;"
+        class="margin-left-2px"
+      />
+    ) : null
+  }</a
+>

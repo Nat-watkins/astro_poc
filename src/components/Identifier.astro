@@ -1,162 +1,197 @@
+---
+import Link from "./link.astro";
+import LogoHHS from "#assets/images/HHS-logo.svg";
+import LogoCMS from "#assets/images/CMS-logo.svg";
+---
+
 <div class="usa-identifier">
-    <section
-      class="usa-identifier__section usa-identifier__section--masthead"
-      aria-label="Agency identifier,"
-    >
-      <div class="usa-identifier__container">
-        <div class="usa-identifier__logos">
-          <a href="https://www.hhs.gov/" class="usa-identifier__logo"
-            ><img
-              class="usa-identifier__logo-img"
-              src="/src/assets/images/HHS-logo.svg"
-              alt="HHS logo"
-              role="img"
-          /></a>
-          <a href="https://www.cms.gov/" class="usa-identifier__logo"
-            ><img
-              class="usa-identifier__logo-img padding-x-2"
-              src="/src/assets/images/CMS-logo.svg"
-              alt="CMS logo"
-              role="img"
-          /></a>
-        </div>
-        <section
-          class="usa-identifier__identity"
-          aria-label="Agency description,"
+  <section
+    class="usa-identifier__section usa-identifier__section--masthead"
+    aria-label="Agency identifier,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__logos">
+        <Link
+          href="https://www.hhs.gov/"
+          showIcon={false}
+          class="usa-identifier__logo"
         >
-          <p class="usa-identifier__identity-domain">cms.gov</p>
-          <p class="usa-identifier__identity-disclaimer">
-            <span aria-hidden="true">An </span>official website of the
-            <a href="https://www.hhs.gov/" class="usa-link--external">U.S. Department of Health and Human Services</a> and the
-            <a href="https://www.cms.gov/" class="usa-link--external">Centers for Medicare & Medicaid Services</a>.
-          </p>
-        </section>
+          <LogoHHS
+            class="usa-identifier__logo-img"
+            aria-label="HHS logo"
+          /></Link
+        >
+        <Link
+          href="https://www.cms.gov/"
+          showIcon={false}
+          class="usa-identifier__logo"
+          ><LogoCMS
+            class="usa-identifier__logo-img padding-x-2"
+            aria-label="CMS logo"
+          /></Link
+        >
       </div>
-    </section>
-    <nav
-      class="usa-identifier__section usa-identifier__section--required-links"
-      aria-label="Important links,"
-    >
-      <div class="usa-identifier__container">
-        <ul class="usa-identifier__required-links-list">
-          <li class="usa-identifier__required-links-item">
-            <a 
-              href="https://www.cms.gov/about-cms" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >About CMS</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.medicare.gov/" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Medicare.gov</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.medicaid.gov/" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Medicaid.gov</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.healthcare.gov/" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Healthcare.gov</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="http://developer.cms.gov" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Developer.cms.gov</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://design.cms.gov/" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >CMS Design System</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://designsystem.digital.gov/" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >U.S. Web Design System</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.cms.gov/about-cms/web-policies-important-links/foia" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Freedom of Information Act</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://oig.hhs.gov/" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Inspector General</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.cms.gov/about-cms/web-policies-important-links/no-fear-act" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >No Fear Act</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.medicare.gov/about-us/plain-writing" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Plain Writing</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.cms.gov/About-CMS/Agency-Information/Aboutwebsite/Privacy-Policy" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >CMS Privacy Policy</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.cms.gov/vulnerability-disclosure-policy" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >CMS/HHS Vulnerability Disclosure Policy</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.cms.gov/about-cms/web-policies-important-links/accessibility-nondiscrimination-disabilities-notice" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Accessibility Statement</a
-            >
-          </li>
-          <li class="usa-identifier__required-links-item">
-            <a
-              href="https://www.cms.gov/about-cms/performance-budget/current" target="_blank" rel="noopener noreferrer"
-              class="usa-identifier__required-link usa-link usa-link--external"
-              >Performance Reports</a
-            >
-          </li>
-        </ul>
+      <section class="usa-identifier__identity" aria-label="Agency description">
+        <p class="usa-identifier__identity-domain">cms.gov</p>
+        <p class="usa-identifier__identity-disclaimer">
+          <span aria-hidden="true">An </span>official website of the
+          <Link href="https://www.hhs.gov/"
+            >U.S. Department of Health and Human Services</Link
+          > and the
+          <Link href="https:www.cms.gov"
+            >Centers for Medicare & Medicaid Services</Link
+          >.
+        </p>
+      </section>
+    </div>
+  </section>
+  <nav
+    class="usa-identifier__section usa-identifier__section--required-links"
+    aria-label="Important links"
+  >
+    <div class="usa-identifier__container">
+      <ul class="usa-identifier__required-links-list">
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/about-cms"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link">About CMS</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.medicare.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link">Medicare.gov</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.medicaid.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link">Medicaid.gov</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.healthcare.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link">Healthcare.gov</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="http://developer.cms.gov"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >Developer.cms.gov</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://design.cms.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >CMS Design System</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://designsystem.digital.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >U.S. Web Design System</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/about-cms/web-policies-important-links/foia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >Freedom of Information Act</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://oig.hhs.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >Inspector General</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/about-cms/web-policies-important-links/no-fear-act"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link">No Fear Act</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.medicare.gov/about-us/plain-writing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link">Plain Writing</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/About-CMS/Agency-Information/Aboutwebsite/Privacy-Policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >CMS Privacy Policy</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/vulnerability-disclosure-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >CMS/HHS Vulnerability Disclosure Policy</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/about-cms/web-policies-important-links/accessibility-nondiscrimination-disabilities-notice"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >Accessibility Statement</Link
+          >
+        </li>
+        <li class="usa-identifier__required-links-item">
+          <Link
+            href="https://www.cms.gov/about-cms/performance-budget/current"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="usa-identifier__required-link usa-link"
+            >Performance Reports</Link
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section
+    class="usa-identifier__section usa-identifier__section--usagov"
+    aria-label="U.S. government information and services,"
+  >
+    <div class="usa-identifier__container">
+      <div class="usa-identifier__usagov-description">
+        Looking for U.S. government information and services?
       </div>
-    </nav>
-    <section
-      class="usa-identifier__section usa-identifier__section--usagov"
-      aria-label="U.S. government information and services,"
-    >
-      <div class="usa-identifier__container">
-        <div class="usa-identifier__usagov-description">
-          Looking for U.S. government information and services?
-        </div>
-        <a href="https://www.usa.gov/" class="usa-link usa-link--external">Visit USA.gov</a>
-      </div>
-    </section>
-  </div>
-</footer>
+      <Link href="https://www.usa.gov/" class="usa-link">Visit USA.gov</Link>
+    </div>
+  </section>
+</div>

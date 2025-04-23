@@ -1,19 +1,14 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import SideNav from 'components/SideNav.astro';
-import InPageNav from 'components/InPageNav.astro';  
-const { frontmatter } = Astro.props;
+import SideNav from "components/SideNav.astro";
+import InPageNav from "components/InPageNav.astro";
 ---
 
-<BaseLayout>
-    <div class="grid-row grid-gap-4 flex-align-start">
-        <SideNav />
-        <div class="grid-col-fill">
-            <slot />
-        </div>
-        <div class="position-sticky">
-            <InPageNav />
-        </div>
+<div class="grid-row grid-gap-4 flex-align-start">
+    <SideNav />
+    <div class="grid-col-fill">
+        <slot />
     </div>
-</BaseLayout>
-
+    <div class="position-sticky">
+        <InPageNav />
+    </div>
+</div>

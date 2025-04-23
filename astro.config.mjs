@@ -1,8 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://bcda.cms.gov',
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -13,4 +17,6 @@ export default defineConfig({
       }
     },
   },
+
+  integrations: [mdx()],
 })
