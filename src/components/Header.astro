@@ -3,6 +3,7 @@ import IconClose from "#assets/uswds/img/usa-icons/close.svg";
 
 import LogoBlueButton from "#assets/images/logo-bluebutton.svg";
 import Link from "./link.astro";
+import { PRIMARY_NAV_LINKS } from "utils/constants";
 ---
 
 <div class="position-sticky top-0 bg-white shadow-1 z-500">
@@ -17,7 +18,10 @@ import Link from "./link.astro";
             data-tealium="navigation"
             class="display-block width-5 height-5"
           >
-            <LogoBlueButton aria-label="BlueButton 2.0 logo" class="width-full height-5" />
+            <LogoBlueButton
+              aria-label="BlueButton 2.0 logo"
+              class="width-full height-5"
+            />
           </Link>
         </div>
         <button type="button" class="usa-menu-btn">Menu</button>
@@ -27,43 +31,47 @@ import Link from "./link.astro";
           <IconClose aria-label="close" />
         </button>
         <ul class="usa-nav__primary usa-accordion">
-          <li class="usa-nav__primary-item">
-            <Link href="/about" class="usa-nav-link" data-tealium="navigation"
-              ><span>About</span>
-            </Link>
-          </li>
-          <li class="usa-nav__primary-item">
-            <Link
-              href="/api-documentation/"
-              class="usa-nav-link"
-              data-tealium="navigation"
-              ><span>Documentation</span>
-            </Link>
-          </li>
-          <li class="usa-nav__primary-item">
-            <Link
-              href="/bcda-data/"
-              class="usa-nav-link"
-              data-tealium="navigation"
-              ><span>Data</span>
-            </Link>
-          </li>
-          <li class="usa-nav__primary-item">
-            <Link
-              href="/production-access/"
-              class="usa-nav-link"
-              data-tealium="navigation"
-              ><span>Production Access</span>
-            </Link>
-          </li>
-          <li class="usa-nav__primary-item">
-            <Link
-              href="/support/"
-              class="usa-nav-link"
-              data-tealium="navigation"
-              ><span>Support</span>
-            </Link>
-          </li>
+          {
+            PRIMARY_NAV_LINKS.map((link, idx) => (
+              <Fragment>
+                {link.href ? (
+                  <li class="usa-nav__primary-item">
+                    <Link
+                      href={link.href}
+                      class="usa-nav-link"
+                      data-tealium="navigation"
+                    >
+                      <span>{link.label}</span>
+                    </Link>
+                  </li>
+                ) : (
+                  <li class="usa-nav__primary-item">
+                    <button
+                      type="button"
+                      class="usa-accordion__button usa-nav__link"
+                      aria-expanded="false"
+                      aria-controls={`basic-nav-section-${idx}`}
+                    >
+                      <span>{link.label}</span>
+                    </button>
+                    <ul
+                      id={`basic-nav-section-${idx}`}
+                      class="usa-nav__submenu"
+                      hidden
+                    >
+                      {link.children?.map((child) => (
+                        <li class="usa-nav__submenu-item">
+                          <a class="" href={child.href} data-tealium="main_nav">
+                            <span>{child.label}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                )}
+              </Fragment>
+            ))
+          }
         </ul>
         <div class="padding-left-1">
           <Link

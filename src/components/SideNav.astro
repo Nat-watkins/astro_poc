@@ -1,55 +1,68 @@
 ---
+import { SIDEBAR_NAV_LINKS } from "utils/constants";
+import Link from "./link.astro";
 
+const { pathname } = Astro.url;
 ---
 
 <div
-    class="position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-y-2"
-    style="top: 5.75rem; height: calc(100vh - 6rem);"
+  class="position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-y-2"
+  style="top: 5.75rem; height: calc(100vh - 6rem);"
 >
-    <div class="width-card-lg">
-        <nav aria-label="Side navigation">
-            <ul class="usa-sidenav">
-                <li class="usa-sidenav__item">
-                    <Link
-                        href=""
-                        class="<!-- If current page URL -->"
-                        data-tealium="navigation">Get a Bearer Token</Link
-                    >
-                </li>
-                <li class="usa-sidenav__item">
-                    <Link
-                        href=""
-                        class="<!-- If current page URL -->"
-                        data-tealium="navigation">Access Claims Data</Link
-                    >
-                </li>
-                <li class="usa-sidenav__item">
-                    <Link
-                        href="/docs/comparison-bcda-cclf-files"
-                        class="<!-- If current page URL -->"
-                        data-tealium="navigation"
-                        >Comparison of BCDA and CCLF Files</Link
-                    >
-                </li>
-                <li class="usa-sidenav__item">
-                    <Link
-                        href=""
-                        class="usa-nav-link"
-                        data-tealium="navigation"
-                    >
-                        <span> Icon + GitHub repo </span>
-                    </Link>
-                </li>
-                <li class="usa-sidenav__item">
-                    <Link
-                        href=""
-                        class="usa-nav-link"
-                        data-tealium="navigation"
-                    >
-                        <span>Icon + Swagger</span>
-                    </Link>
-                </li>
-            </ul>
-        </nav>
-    </div>
+  <div class="width-card-lg">
+    <nav aria-label="Side navigation">
+      <ul class="usa-sidenav">
+        {
+          SIDEBAR_NAV_LINKS.map((link) => (
+            <Fragment>
+              <li class="usa-sidenav__item">
+                <Link
+                  href={link.href}
+                  class={pathname.startsWith(link.href) ? "usa-current" : null}
+                >
+                  {link.label}
+                </Link>
+                {link.children && link.children?.length > 1 ? (
+                  <ul class="usa-sidenav__sublist">
+                    {link.children.map((child) => (
+                      <li class="usa-sidenav__item">
+                        <Link
+                          href={child.href}
+                          class={pathname === child.href ? "usa-current" : null}
+                        >
+                          {child.label}
+                        </Link>
+                        {child.children && child.children?.length > 1 ? (
+                          <ul class="usa-sidenav__sublist">
+                            {child.children.map((grandchild) => (
+                              <li class="usa-sidenav__item">
+                                <Link
+                                  href={grandchild.href}
+                                  class={
+                                    pathname === grandchild.href
+                                      ? "usa-current"
+                                      : null
+                                  }
+                                >
+                                  {grandchild.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
+            </Fragment>
+          ))
+        }
+
+        <li class="usa-sidenav__item">
+          <span>Icon + Swagger</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>
