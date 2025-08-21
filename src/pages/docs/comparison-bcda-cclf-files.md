@@ -6,7 +6,7 @@ description: 'This is a test'
 
 # Comparison of BCDA and CCLF Files
 
-While Beneficiary Claims Data API (BCDA) and Claim and Claim Line Feed (CCLF) files both offer Medicare Parts A, B, and D claims data, there are some differences between the format and update frequency. 
+While Blue Button 2.0 (BCDA) and Claim and Claim Line Feed (CCLF) files both offer Medicare Parts A, B, and D claims data, there are some differences between the format and update frequency. 
 
 Model entities can use either or both source(s) for data insights. It’s important to choose what works best for your organization's workflow and needs. <Link href="{{ '/assets/downloads/BCDA_Data_Dictionary.xlsx' | relative_url }}">Download the Data Dictionary {% include sprite.html icon="file_download" class="text-middle" %}</Link> to review how fields map between BCDA and CCLF files.
 

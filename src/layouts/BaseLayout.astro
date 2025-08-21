@@ -6,7 +6,7 @@ import Identifier from "../components/Identifier.astro";
 import Link from "components/link.astro";
 import { SEO } from "astro-seo";
 
-import LogoBCDA from "#assets/images/logo-bcda.svg";
+import LogoBlueButton from "#assets/images/logo-bluebutton.svg";
 
 import "@fontsource-variable/open-sans";
 import "#assets/sass/styles.scss";
@@ -25,7 +25,7 @@ const { title, description, image } = Astro.props;
     <SEO
         charset="utf-8"
         title={title}
-        titleTemplate={`%s - Beneficiary Claims Data API`}
+        titleTemplate={`%s - Blue Button 2.0`}
         description={description}
         openGraph={{
             basic: {
@@ -37,7 +37,7 @@ const { title, description, image } = Astro.props;
             optional: {
                 description,
                 locale: "en_US",
-                siteName: "Beneficiary Claims Data API",
+                siteName: "Blue Button 2.0",
             },
             image: {
                 width: 1200,
@@ -56,7 +56,7 @@ const { title, description, image } = Astro.props;
                 {
                     rel: "icon",
                     type: "image/svg+xml+png",
-                    href: LogoBCDA.src,
+                    href: LogoBlueButton.src,
                 },
             ],
             meta: [

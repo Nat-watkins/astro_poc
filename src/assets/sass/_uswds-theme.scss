@@ -16,19 +16,30 @@ in the form $setting: value,
 
 // _uswds-theme.scss
 
+
 @use "uswds-core" with (
   $theme-show-notifications: false,
-  $theme-font-path: "../uswds/fonts",
-  $theme-image-path: "../uswds/img",
+  $theme-banner-max-width: "desktop-lg",
+  $theme-color-primary-darker: "blue-90",
+  $theme-focus-color: "cyan-30v",
+  $theme-card-gap: 4,
   $theme-font-role-heading: 'sans',
   $theme-font-type-sans: 'open-sans',
-  $theme-text-measure: 5,
-  $theme-lead-line-height: 3,
-  $theme-banner-max-width: "desktop-lg",
-  $theme-header-max-width: "desktop-lg",
-  $theme-grid-container-max-width: "desktop-lg",
-  $theme-in-page-nav-main-content-max-width: "desktop-lg",
   $theme-footer-max-width: "desktop-lg",
+  $theme-grid-container-max-width: "desktop-lg",
+  $theme-header-max-width: "desktop-lg",
   $theme-identifier-max-width: "desktop-lg",
-  $theme-focus-color: "gold-20v",
-)
+  $theme-in-page-nav-top: 10,
+  $theme-in-page-nav-main-content-max-width: "desktop-lg",
+  $theme-lead-line-height: 3,
+  $theme-site-alert-max-width: "desktop-lg",
+  $theme-text-measure: 5,
+  $top-palettes: (
+    'palette-top-default',
+    'palette-units-system-positive-medium',
+  ),
+  $background-color-settings: (
+    active: true
+  ), 
+  $theme-process-list-connector-width: 4,
+);
