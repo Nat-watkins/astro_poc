@@ -1,8 +1,7 @@
 ---
-layout: layout-for-data-tables
 title: 'EOB Type Coding'
-permalink: '/resources/codesystem/eob-type/'
 ---
+
 # Coding System: EOB Type
 
 ## Usage
@@ -14,8 +13,6 @@ permalink: '/resources/codesystem/eob-type/'
 This FHIR <code><a href="http://hl7.org/fhir/STU3/datatypes.html#coding">Coding</a>.system</code> value is used for the `Coding`s that best identifies the claim/event for each `ExplanationOfBenefit` (EOB) resource. Such `ExplanationOfBenefit.type` `Coding`s will be present for all `ExplanationOfBenefit` resources returned by the API.
 
 The `ExplanationOfBenefit.type` field will contain multiple `Coding`s, based on the type of claim/event that the EOB represents. At the moment, only the BBAPI-specific `eob-type` `Coding` is guaranteed to be present for every EOB, and so it's the one that API authors are recommended to make the most use of. This is particularly critical since the data/fields available in the EOBs vary dramatically for each `eob-type`. For example, API users should not expect that the fields present in a "`CARRIER`" EOB will also be present in an "`HHA`" EOB; **the data schema for each claim/event type is quite different!**
-
-<!-- TODO: Once available, this would be a great place to link to our EOB profiles, since we'll have one for each eob-type. -->
 
 ## Values
 

@@ -1,20 +1,35 @@
 ---
-import { SIDEBAR_NAV_LINKS } from "utils/constants";
+import { getCollection } from "astro:content";
 import Link from "./link.astro";
 
 const { pathname } = Astro.url;
+
+const apiDocs = await getCollection("apiDocs");
+const sidenavLinks = apiDocs.map((post) => ({
+  label: post.data.title,
+  href: `/api-docs/${post.id}`,
+}));
 ---
 
 <div
-      class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-7 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
-      style="top: 4rem; height: calc(100vh - 4.5rem);"
+  class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-7 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
+  style="top: 4rem; height: calc(100vh - 4.5rem);"
 >
   <div class="width-card-lg">
     <nav aria-label="Side navigation">
       <ul class="usa-sidenav">
-        {
-          SIDEBAR_NAV_LINKS.map((link) => (
-            <Fragment>
+        <li class="usa-sidenav__item">
+          <a
+            href="/api-documentation"
+            class="if current page"
+            data-tealium="left-rail"
+          >
+            Get Started
+          </a>
+        </li>
+        <ul class="usa-sidenav__sublist">
+          {
+            sidenavLinks.map((link) => (
               <li class="usa-sidenav__item">
                 <Link
                   href={link.href}
@@ -22,45 +37,14 @@ const { pathname } = Astro.url;
                 >
                   {link.label}
                 </Link>
-                {link.children && link.children?.length > 1 ? (
-                  <ul class="usa-sidenav__sublist">
-                    {link.children.map((child) => (
-                      <li class="usa-sidenav__item">
-                        <Link
-                          href={child.href}
-                          class={pathname === child.href ? "usa-current" : null}
-                        >
-                          {child.label}
-                        </Link>
-                        {child.children && child.children?.length > 1 ? (
-                          <ul class="usa-sidenav__sublist">
-                            {child.children.map((grandchild) => (
-                              <li class="usa-sidenav__item">
-                                <Link
-                                  href={grandchild.href}
-                                  class={
-                                    pathname === grandchild.href
-                                      ? "usa-current"
-                                      : null
-                                  }
-                                >
-                                  {grandchild.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
               </li>
-            </Fragment>
-          ))
-        }
-
+            ))
+          }
+        </ul>
         <li class="usa-sidenav__item">
-          <span>Icon + Swagger</span>
+          <a href="/" data-tealium="left-rail">
+            <span>Swagger + Icon</span>
+          </a>
         </li>
       </ul>
     </nav>

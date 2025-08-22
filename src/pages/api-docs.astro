@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "#assets/sass/styles.scss";
 import Link from "components/link.astro";
 import { getEntry } from "astro:content";
 import { render } from "astro:content";
+import ProcessList from "components/process-list.astro";
+import ProcessListItem from "components/process-list-item.astro";
 import CopySnippet from "components/copy-snippet.astro";
-import Alert from "components/alert.astro";
 
-const entry = await getEntry("pages", "get-a-bearer-token");
+const entry = await getEntry("pages", "resources");
 if (!entry) {
 	throw new Error("Page not found");
 }
@@ -21,8 +23,9 @@ const { Content, headings } = await render(entry);
 		<Content
 			components={{
 				a: Link,
+				ProcessList,
+				ProcessListItem,
 				CopySnippet,
-				Alert,
 			}}
 		/>
 	</main>

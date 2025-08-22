@@ -5,15 +5,15 @@ description: ""
 
 ## Understanding the data
 
-The BB2.0 database pulls data from the [CMS Chronic Conditions Warehouse (CCW)](https://www2.ccwdata.org/web/guest/home/){:target="_blank"}, which contains Medicare Part A, B and D claims data going back to 2014\. Over 600 fields from the CCW are mapped to FHIR. These fields are surfaced across the Patient, Coverage and Explanation of Benefits FHIR resources.
+The BB2.0 database pulls data from the [CMS Chronic Conditions Warehouse (CCW)](https://www2.ccwdata.org/web/guest/home/), which contains Medicare Part A, B and D claims data going back to 2014\. Over 600 fields from the CCW are mapped to FHIR. These fields are surfaced across the Patient, Coverage and Explanation of Benefits FHIR resources.
 
 ### FHIR resources
 
-Blue Button 2.0 API data is supplied in three resources from the [FHIR standard](http://hl7.org/fhir/R4/){:target="_blank"}:
+Blue Button 2.0 API data is supplied in three resources from the [FHIR standard](http://hl7.org/fhir/R4/):
 
-* [Explanation of Benefit](http://www.hl7.org/fhir/R4/explanationofbenefit.html){:target="_blank"} (EOB): Primary source of claims data. The EOB resource contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.
-* [Patient](http://hl7.org/fhir/R4/patient.html){:target="_blank"}: Provides information about patients including demographic information and updates to their patient identifiers.
-* [Coverage](https://hl7.org/fhir/R4/coverage.html){:target="_blank"}: Provides information about the enrollees' insurance coverage, including information about dual coverage.
+* [Explanation of Benefit](http://www.hl7.org/fhir/R4/explanationofbenefit.html) (EOB): Primary source of claims data. The EOB resource contains the lines within an episode of care, including where and when the service was performed, the diagnosis codes, the provider who performed the service, and the cost of care.
+* [Patient](http://hl7.org/fhir/R4/patient.html): Provides information about patients including demographic information and updates to their patient identifiers.
+* [Coverage](https://hl7.org/fhir/R4/coverage.html): Provides information about the enrollees' insurance coverage, including information about dual coverage.
 
 #### Explanation of Benefit
 
@@ -33,7 +33,7 @@ Request:
 HTTP GET /v2/fhir/ExplanationOfBenefit/?patient=[fhir_id]  
 ~~~
 
-This request returns claims as [Explanation of Benefit Resources](https://hl7.org/fhir/R4/explanationofbenefit.html){:target="_blank"} inside a [FHIR Bundle](http://hl7.org/fhir/R4/bundle.html){:target="_blank"}.   
+This request returns claims as [Explanation of Benefit Resources](https://hl7.org/fhir/R4/explanationofbenefit.html) inside a [FHIR Bundle](http://hl7.org/fhir/R4/bundle.html).   
 
 Example response excerpt:
 ~~~
@@ -75,7 +75,7 @@ Example response excerpt:
 HTTP GET /v2/fhir/Patient/[fhir_id]  
 ~~~
 
-The above URL returns demographic and other administrative information as a [Patient FHIR Resource](http://hl7.org/fhir/R4/patient.html){:target="_blank"}. This information is mostly demographic information, not medical data. Note that users can choose to allow or deny access to the /Patient endpoint in the Medicare.gov authorization flow. For more information, go to [Scopes](#scopes).  
+The above URL returns demographic and other administrative information as a [Patient FHIR Resource](http://hl7.org/fhir/R4/patient.html). This information is mostly demographic information, not medical data. Note that users can choose to allow or deny access to the /Patient endpoint in the Medicare.gov authorization flow. For more information, go to [Scopes](#scopes).  
 
 Request:
 ~~~
@@ -140,7 +140,7 @@ Example response excerpt:
 ~~~
 HTTP GET /v2/fhir/Coverage/?beneficiary=[fhir_id]  
 ~~~
-The above URL returns Coverage information as [Coverage resources](http://hl7.org/fhir/R4/coverage.html){:target="_blank"} inside a [FHIR Bundle](http://hl7.org/fhir/R4/bundle.html){:target="_blank"}. One coverage resource is supplied for each coverage type.
+The above URL returns Coverage information as [Coverage resources](http://hl7.org/fhir/R4/coverage.html) inside a [FHIR Bundle](http://hl7.org/fhir/R4/bundle.html). One coverage resource is supplied for each coverage type.
 
 Request: 
 ~~~
@@ -222,17 +222,17 @@ Example response:
 
 BB2.0 API supplies codified data using several different terminology and coding systems, defined by various standards bodies, along with locally defined CMS coding systems: 
 
-* [ICD-10](https://www.cms.gov/Medicare/Coding/ICD10){:target="_blank"}
-* [HCPCS](https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo){:target="_blank"}
-* [CPT Codes](https://www.cms.gov/Medicare/Fraud-and-Abuse/PhysicianSelfReferral){:target="_blank"}
-* [National Drug Code Directory](https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory){:target="_blank"}
-* [CMS Claim Type](/resources/codesystem/eob-type/){:target="_blank"}  
+* [ICD-10](https://www.cms.gov/Medicare/Coding/ICD10)
+* [HCPCS](https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo)
+* [CPT Codes](https://www.cms.gov/Medicare/Fraud-and-Abuse/PhysicianSelfReferral)
+* [National Drug Code Directory](https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory)
+* [CMS Claim Type](/resources/codesystem/eob-type/)  
 
-Additional information about coding systems can be found on the [terminology page](http://www.hl7.org/fhir/us/carin-bb/artifacts.html#5){:target="_blank"} of the [CARIN Implementation Guide](http://www.hl7.org/fhir/us/carin-bb/index.html){:target="_blank"} and in the [Blue Button Code System Listing (CSV 77KB)](/assets/csv/bluebutton_system_listing.csv){:target="_blank"}.  
+Additional information about coding systems can be found on the [terminology page](http://www.hl7.org/fhir/us/carin-bb/artifacts.html#5) of the [CARIN Implementation Guide](http://www.hl7.org/fhir/us/carin-bb/index.html) and in the [Blue Button Code System Listing (CSV 77KB)](/assets/csv/bluebutton_system_listing.csv).  
 
-BB2.0 API also provides data in [FHIR Extensions](http://www.hl7.org/fhir/extensibility.html){:target="_blank"}. FHIR extensions are custom data elements that are not found in the FHIR standard:
+BB2.0 API also provides data in [FHIR Extensions](http://www.hl7.org/fhir/extensibility.html). FHIR extensions are custom data elements that are not found in the FHIR standard:
 
-* [Blue Button extensions in V2 (CSV 96KB)](/assets/csv/BB_V2_extension_listing.csv){:target="_blank"}
+* [Blue Button extensions in V2 (CSV 96KB)](/assets/csv/BB_V2_extension_listing.csv)
 
 ### Refresh rate and rate limiting
 
@@ -254,7 +254,7 @@ BB2.0 API offers 10,000 synthetic user accounts for you to test with in both the
 | -------- |-----------------------------------------------------| -------- | 
 | BBUser00000 to BBuser09999 | Rolling claims updated weekly. <br/><br/>Loaded July 2023 | These accounts receive new claims data on a rolling basis.  These user accounts represent a range of Medicare demographics and ages, including people under 65 who qualify for Medicare for reasons other than age. |
 | BBUser10000 | Last Updated 2022 | BBUser10000 is a special synthetic user that provides nearly every field the API supports, including a variety of claim types. This makes it an excellent testing account for populating test scenarios. |
-{:.ds-c-table}
+
 
 To differentiate between synthetic data and real patient production data, synthetic records have negative Patient ID and Explanation of Benefit values (example synthetic Patient ID: -10000010254618). Real Patient IDs will always have positive values.  
 
