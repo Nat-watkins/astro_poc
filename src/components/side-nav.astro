@@ -1,17 +1,17 @@
 ---
-
+import Link from "components/link.astro";
 ---
 
 <div
-    class="position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-y-2"
-    style="top: 5.75rem; height: calc(100vh - 6rem);"
+      class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-7 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
+      style="top: 4rem; height: calc(100vh - 4.5rem);"
 >
     <div class="width-card-lg">
         <nav aria-label="Side navigation">
             <ul class="usa-sidenav">
                 <li class="usa-sidenav__item">
                     <Link
-                        href=""
+                        href="/get-bearer-token"
                         class="<!-- If current page URL -->"
                         data-tealium="navigation">Get a Bearer Token</Link
                     >
