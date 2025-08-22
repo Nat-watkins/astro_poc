@@ -1,34 +1,34 @@
 ---
 type Props = {
-  CardHeading: string;
-  CardImg: string;
-  CardBody: string;
-  CardButton: string;
-  CardButtonLink: string;
+  heading: string;
+  img: string;
+  body: string;
+  button: string;
+  buttonLink: string;
 };
 
-const { CardHeading, CardImg, CardBody, CardButton, CardButtonLink } =
+const { heading, img, body, button, buttonLink } =
   Astro.props;
 ---
   <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
     <div class="usa-card__container">
       <div class="usa-card__header">
-        <h3 class="usa-card__heading">{CardHeading}</h3>
+        <h3 class="usa-card__heading">{heading}</h3>
       </div>
       <div class="usa-card__media usa-card__media--inset">
         <div class="usa-card__img text-center">
-          <img src={CardImg} class="maxw-16 margin-x-auto" />
+          <img src={img} class="maxw-16 margin-x-auto" />
         </div>
       </div>
       <div class="usa-card__body">
-        <p>{CardBody}</p>
+        <p>{body}</p>
       </div>
       <div class="usa-card__footer">
         <a
-          href={CardButtonLink}
+          href={buttonLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="usa-button">{CardButton}</a
+          class="usa-button">{button}</a
         >
       </div>
     </div>

@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "components/Hero.astro";
-import Card from "components/Card.astro";
+import Hero from "components/hero.astro";
+import Card from "components/card.astro";
 import Browsers from "#assets/images/browsers.svg?url";
 import Home from "#assets/images/home.svg?url";
 import Whiteboard from "#assets/images/whiteboard.svg?url";
-import TwoColumn from "components/TwoColumn.astro";
+import TwoColumn from "components/two-column.astro";
 ---
 
 <BaseLayout title="Blue Button 2.0 (BB2)" description="">
@@ -17,33 +17,33 @@ import TwoColumn from "components/TwoColumn.astro";
     <h2>Medicare claims data at your fingertips</h2>
     <ul class="usa-card-group flex-justify-center padding-y-4">
       <Card
-        CardHeading="For Developers"
-        CardImg={Browsers}
-        CardBody="Explore the developer sandbox to build amazing tools and services with the Blue Button 2.0 API."
-        CardButton="Sign up for the developer sandbox"
-        CardButtonLink=""
+        heading="For Developers"
+        img={Browsers}
+        body="Explore the developer sandbox to build amazing tools and services with the Blue Button 2.0 API."
+        button="Sign up for the developer sandbox"
+        buttonLink=""
       />
       <Card
-        CardHeading="For Organizations"
-        CardImg={Whiteboard}
-        CardBody="Discover how your company or organization could use Blue Button 2.0."
-        CardButton="See the power of Blue Button 2.0"
-        CardButtonLink=""
+        heading="For Organizations"
+        img={Whiteboard}
+        body="Discover how your company or organization could use Blue Button 2.0."
+        button="See the power of Blue Button 2.0"
+        buttonLink=""
       />
       <Card
-        CardHeading="For People with Medicare"
-        CardImg={Home}
-        CardBody="Learn about Medicare's Blue Button & find apps you can use."
-        CardButton="Get Blue Button details on Medicare.gov"
-        CardButtonLink=""
+        heading="For People with Medicare"
+        img={Home}
+        body="Learn about Medicare's Blue Button & find apps you can use."
+        button="Get Blue Button details on Medicare.gov"
+        buttonLink=""
       />
     </ul>
     <TwoColumn
-      ColumnImage={Whiteboard}
-      ColumnTitle="Value for organizations"
-      ColumnButton="View the documentation"
-      ColumnButtonLink=""
-      ImageLast={false}
+      image={Whiteboard}
+      title="Value for organizations"
+      button="View the documentation"
+      buttonLink=""
+      imageLast={false}
     >
       <h3>What does Blue Button 2.0 allow you to do?</h3>
       <p>
@@ -64,11 +64,11 @@ import TwoColumn from "components/TwoColumn.astro";
       </p>
     </TwoColumn>
     <TwoColumn
-      ColumnImage={Home}
-      ColumnTitle="Value for people with Medicare"
-      ColumnButton="View the Blue Button apps"
-      ColumnButtonLink=""
-      ImageLast={true}
+      image={Home}
+      title="Value for people with Medicare"
+      button="View the Blue Button apps"
+      buttonLink=""
+      imageLast={true}
     >
       <h3>What does Blue Button 2.0 allow you to do?</h3>
       <p>
