@@ -16,7 +16,19 @@ const pageCollection = defineCollection({
   })
 });
 
+const resourcesCollection = defineCollection({
+  loader: glob({
+    pattern: "**\/[^_]*.(md|mdx)",
+    base: "./src/content/resources"
+  }),
+  schema: z.object({
+    title: z.string(),
+    // description: z.string()
+  })
+});
+
 // 4. Export a single `collections` object to register your collection(s)
 export const collections = {
   pages: pageCollection,
+  resources: resourcesCollection
 };
