@@ -4,10 +4,12 @@ import Link from "./link.astro";
 
 const { pathname } = Astro.url;
 
-const apiDocs = await getCollection("apiDocs");
-const sidenavLinks = apiDocs.map((post) => ({
-  label: post.data.title,
-  href: `/api-docs/${post.id}`,
+const apiDocs = (await getCollection("apiDocs")).sort(
+(a, b) => a.data.sortOrder - b.data.sortOrder,
+);
+const sidenavLinks = apiDocs.map((doc) => ({
+  label: doc.data.title,
+  href: `/api-docs/${doc.id}`,
 }));
 ---
 

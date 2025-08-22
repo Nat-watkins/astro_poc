@@ -34,7 +34,8 @@ const apiDocsCollection = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
-    // description: z.string()
+    // description: z.string(),
+    sortOrder: z.number(),
   })
 });
 
