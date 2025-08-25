@@ -1,1 +1,14 @@
-<!-- pull in uswds asset and add logic for name and color -->
+---
+type Props = {
+  icon: string;
+  color: string;
+  size: string;
+};
+
+const { icon, color, size, } =
+  Astro.props;
+---
+
+<svg class={`usa-icon text-${color} usa-icon--${size}`} aria-hidden="true">
+  <use xlink:href={`./src/assets/uswds/img/usa-icons/${icon}.svg`}></use>
+</svg>

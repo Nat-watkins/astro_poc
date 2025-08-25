@@ -1,6 +1,7 @@
 ---
 import GitHubLogo from "#assets/uswds/img/usa-icons/github.svg";
 import ArrowForward from "#assets/uswds/img/usa-icons/arrow_forward.svg";
+import Icon from "./icon.astro"
 
 type Props = {
   h1: string;
@@ -26,7 +27,12 @@ const { h1, description } = Astro.props;
           href=""
           class="hero-button usa-button usa-button--inverse usa-button--outline width-full"
         >
-          Get started <ArrowForward style="fill:white"/>
+          Get started 	
+          <Icon 
+            icon="arrow_forward"
+            color="white"
+            size=""
+          />
         </a>
       </div>
       <div class="tablet:grid-col-auto margin-top-2">
@@ -36,7 +42,12 @@ const { h1, description } = Astro.props;
           rel="noopener noreferrer"
           class="hero-button usa-button usa-button--inverse usa-button--outline width-full"
         >
-          Code repo <GitHubLogo style="fill:white" />
+          Code repo 
+          <Icon 
+            icon="github"
+            color="white"
+            size=""
+          />
         </a>
       </div>
     </div>
