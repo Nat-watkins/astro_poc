@@ -1,5 +1,4 @@
-import type { IdentifierLinks, PrimaryNavLinks, SidebarNavLinks } from "./types";
-
+import type { IdentifierLinks, PrimaryNavLinks, } from "./types";
 
 export const PRIMARY_NAV_LINKS: PrimaryNavLinks = [
   {
@@ -66,58 +65,6 @@ export const PRIMARY_NAV_LINKS: PrimaryNavLinks = [
     href: "/support"
   }
 ]
-
-export const SIDEBAR_NAV_LINKS: SidebarNavLinks = [
-  {
-    label: "API Documentation",
-    href: "/api-documentation",
-    children: [
-      {
-        label: "How to Get a Bearer Token",
-        href: "/api-documentation/get-a-bearer-token"
-      },
-      {
-        label: "Nested",
-        href: "#",
-        children: [
-          {
-            label: "How to Access Claims Data",
-            href: "/api-documentation/access-claims-data"
-          },
-          {
-            label: "How to Filter Claims Data",
-            href: "/api-documentation/filter-claims-data"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    label: "BCDA Data",
-    href: "/docs",
-    children: [
-      {
-        label: "Guide to Partially Adjudicated Claims Data",
-        href: "/docs/partially-adjudicated-claims-data"
-      },
-      {
-        label: "Comparison of BCDA and CCLF",
-        href: "/docs/comparison-bcda-cclf-files"
-      },
-      {
-        label: "Difference Between V1 and V2",
-        href: "/docs/difference-between-v1-v2"
-      }
-    ]
-  },
-  {
-    label: "Production Access",
-    href: "/production-access"
-  },
-  {
-    label: "Support",
-    href: "/support"
-  }]
 
 export const IDENTIFIER_LINKS: IdentifierLinks = [
   {

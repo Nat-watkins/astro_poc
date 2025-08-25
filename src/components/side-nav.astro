@@ -7,9 +7,17 @@ const { pathname } = Astro.url;
 const apiDocs = (await getCollection("apiDocs")).sort(
   (a, b) => a.data.sortOrder - b.data.sortOrder,
 );
-const sidenavLinks = apiDocs.map((doc) => ({
+const docsnavLinks = apiDocs.map((doc) => ({
   label: doc.data.title,
   href: `/api-docs/${doc.id}`,
+}));
+
+const dataDocs = (await getCollection("dataDocs")).sort(
+  (a, b) => a.data.sortOrder - b.data.sortOrder,
+);
+const datanavLinks = dataDocs.map((doc) => ({
+  label: doc.data.title,
+  href: `/data/${doc.id}`,
 }));
 ---
 
@@ -31,11 +39,36 @@ const sidenavLinks = apiDocs.map((doc) => ({
         </li>
         <ul class="usa-sidenav__sublist">
           {
-            sidenavLinks.map((link) => (
+            docsnavLinks.map((link) => (
               <li class="usa-sidenav__item">
                 <Link
                   href={link.href}
                   class={pathname.startsWith(link.href) ? "usa-current" : null}
+                  data-tealium="left-rail"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+        <li class="usa-sidenav__item">
+          <a
+            href="/data"
+            class="if current page"
+            data-tealium="left-rail"
+          >
+            Data
+          </a>
+        </li>
+        <ul class="usa-sidenav__sublist">
+          {
+            datanavLinks.map((link) => (
+              <li class="usa-sidenav__item">
+                <Link
+                  href={link.href}
+                  class={pathname.startsWith(link.href) ? "usa-current" : null}
+                  data-tealium="left-rail"
                 >
                   {link.label}
                 </Link>

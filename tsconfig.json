@@ -15,6 +15,11 @@
       "#assets/*": [
         "assets/*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
   }
 }

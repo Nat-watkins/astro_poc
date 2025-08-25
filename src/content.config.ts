@@ -39,9 +39,22 @@ const apiDocsCollection = defineCollection({
   })
 });
 
+const dataDocsCollection = defineCollection({
+  loader: glob({
+    pattern: "**\/[^_]*.(md|mdx)",
+    base: "./src/content/data"
+  }),
+  schema: z.object({
+    title: z.string(),
+    // description: z.string(),
+    sortOrder: z.number(),
+  })
+});
+
 // 4. Export a single `collections` object to register your collection(s)
 export const collections = {
   pages: pageCollection,
   resources: resourcesCollection,
   apiDocs: apiDocsCollection,
+  dataDocs: dataDocsCollection,
 };
