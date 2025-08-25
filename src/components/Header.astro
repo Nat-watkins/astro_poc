@@ -1,9 +1,18 @@
 ---
 import IconClose from "#assets/uswds/img/usa-icons/close.svg";
+import { getCollection } from "astro:content";
 
 import LogoBlueButton from "#assets/images/logo-bluebutton.svg";
 import Link from "./link.astro";
 import { PRIMARY_NAV_LINKS } from "utils/constants";
+
+const apiDocs = (await getCollection("apiDocs")).sort(
+  (a, b) => a.data.sortOrder - b.data.sortOrder,
+);
+const sidenavLinks = apiDocs.map((doc) => ({
+  label: doc.data.title,
+  href: `/api-docs/${doc.id}`,
+}));
 ---
 
 <div class="position-sticky top-0 bg-white shadow-1 z-500">
@@ -59,13 +68,19 @@ import { PRIMARY_NAV_LINKS } from "utils/constants";
                       class="usa-nav__submenu"
                       hidden
                     >
-                      {link.children?.map((child) => (
-                        <li class="usa-nav__submenu-item">
-                          <a class="" href={child.href} data-tealium="main_nav">
-                            <span>{child.label}</span>
-                          </a>
-                        </li>
-                      ))}
+                      {
+                        sidenavLinks.map((link) => (
+                            <li class="usa-nav__submenu-item">
+                              <Link
+                                href={link.href}
+                                class=""
+                                data-tealium="main_nav"
+                              >
+                                {link.label}
+                              </Link>
+                            </li>
+                        ))
+                      }
                     </ul>
                   </li>
                 )}

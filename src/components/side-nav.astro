@@ -5,7 +5,7 @@ import Link from "./link.astro";
 const { pathname } = Astro.url;
 
 const apiDocs = (await getCollection("apiDocs")).sort(
-(a, b) => a.data.sortOrder - b.data.sortOrder,
+  (a, b) => a.data.sortOrder - b.data.sortOrder,
 );
 const sidenavLinks = apiDocs.map((doc) => ({
   label: doc.data.title,
