@@ -1,14 +1,24 @@
 ---
-type Props = {
-  icon: string;
-  color: string;
-  size: string;
+import GithubIcon from "#assets/uswds/img/usa-icons/github.svg";
+import ArrowForward from "#assets/uswds/img/usa-icons/arrow_forward.svg";
+
+const iconMap = {
+  github: GithubIcon,
+  arrow_forward: ArrowForward,
 };
 
-const { icon, color, size, } =
-  Astro.props;
+type Props = {
+  icon: keyof typeof iconMap;
+  color: string;
+  size: 3 | 4 | 5;
+};
+
+const { icon, color, size } = Astro.props;
+
+const IconEl = iconMap[icon];
 ---
 
-<svg class={`usa-icon text-${color} usa-icon--${size}`} aria-hidden="true">
-  <use xlink:href={`./src/assets/uswds/img/usa-icons/${icon}.svg`}></use>
-</svg>
+<IconEl
+  class={`usa-icon text-${color} usa-icon--size-${size}`}
+  aria-hidden="true"
+/>
