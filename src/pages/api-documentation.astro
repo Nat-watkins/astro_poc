@@ -7,8 +7,6 @@ import { render } from "astro:content";
 import ProcessList from "components/process-list.astro";
 import ProcessListItem from "components/process-list-item.astro";
 import CopySnippet from "components/copy-snippet.astro";
-import SideNav from "components/side-nav.astro";
-import InPageNav from "components/in-page-nav.astro";
 
 const entry = await getEntry("pages", "api-documentation");
 if (!entry) {
