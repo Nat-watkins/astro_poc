@@ -6,6 +6,6 @@ const { heading } = Astro.props;
 ---
 
 <li class="usa-process-list__item">
-  {heading ? <p class="usa-process-list__heading">Use the sandbox</p> : null}
+  <p class="usa-process-list__heading">{heading}</p>
   <slot />
 </li>
