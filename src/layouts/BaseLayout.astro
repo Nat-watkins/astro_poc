@@ -1,8 +1,8 @@
 ---
-import Banner from "../components/banner.astro";
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
-import Identifier from "../components/identifier.astro";
+import Banner from "#components/Banner.astro";
+import Header from "#components/Header.astro";
+import Footer from "#components/Footer.astro";
+import Identifier from "#components/Identifier.astro";
 import Link from "components/link.astro";
 import SideNav from "components/side-nav.astro";
 import InPageNav from "components/toc.astro";
@@ -12,6 +12,7 @@ import LogoBlueButton from "#assets/images/logo-bluebutton.svg";
 
 import "@fontsource-variable/open-sans";
 import "#assets/sass/styles.scss";
+import type { MarkdownHeading } from "astro";
 
 type Props = {
     title: string;
@@ -19,9 +20,17 @@ type Props = {
     image?: string;
     showSideNav?: boolean;
     showInPageNav?: boolean;
+    headings?: MarkdownHeading[];
 };
 
-const { title, description, image, showSideNav = true, showInPageNav = true, } = Astro.props;
+const {
+    title,
+    description,
+    image,
+    showSideNav = true,
+    showInPageNav = true,
+    headings = [],
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -81,20 +90,24 @@ const { title, description, image, showSideNav = true, showInPageNav = true, } =
         <Banner />
         <div class="position-relative">
             <Header />
-                <div class="grid-container">
-                    <div class="grid-row flex-align-start"> 
-                        {showSideNav && <SideNav />}
-                        <main
-                            id="main-content"
-                            class="main-content position-relative grid-col-fill margin-y-5"
-                        >
-                            <slot />
-                        </main>
-                        {showInPageNav && <InPageNav />}
-                    </div>
+            <div class="grid-container">
+                <div class="grid-row flex-align-start">
+                    {showSideNav && <SideNav />}
+                    <main
+                        id="main-content"
+                        class="main-content position-relative grid-col-fill margin-y-5"
+                    >
+                        <slot />
+                    </main>
+                    {
+                        showInPageNav && headings.length > 0 && (
+                            <InPageNav headings={headings} />
+                        )
+                    }
                 </div>
             </div>
         </div>
+
         <Footer />
         <Identifier />
         <script src="#assets/uswds/js/uswds.js"></script>
