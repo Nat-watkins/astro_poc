@@ -1,3 +1,7 @@
+---
+
+---
+
 <!doctype html>
 <html>
   <head>
@@ -8,18 +12,25 @@
 
   <body>
     <div id="app"></div>
+    <script>
+      import { createApiReference } from "@scalar/api-reference";
 
-    <!-- Load the Script -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"
-    ></script>
-
-    <!-- Initialize the Scalar API Reference -->
-    <script is:inline>
-      Scalar.createApiReference("#app", {
-        // The URL of the OpenAPI/Swagger document
-        url: "/openapi.yaml",
-        // Avoid CORS issues
-        proxyUrl: "https://proxy.scalar.com",
+      document.addEventListener("DOMContentLoaded", () => {
+        createApiReference("#app", {
+          // The URL of the OpenAPI/Swagger document
+          url: "/openapi.yaml",
+          // Avoid CORS issues
+          proxyUrl: "https://proxy.scalar.com",
+          hideClientButton: true,
+          theme: "deepSpace",
+          // hiddenClients: ['libcurl', 'clj_http', 'httpclient', 'restsharp', 'native', 'http1.1', 'asynchttp', 'nethttp', 'okhttp', 'unirest', 'xhr', 'axios', 'fetch', 'jquery', 'okhttp', 'native', 'request', 'unirest', 'axios', 'fetch', 'nsurlsession', 'cohttp', 'curl', 'guzzle', 'http1', 'http2', 'webrequest', 'restmethod', 'python3', 'requests', 'httr', 'native', 'curl', 'httpie', 'wget', 'nsurlsession', 'undici'],
+          hiddenClients: ["undici"],
+          defaultHttpClient: {
+            targetKey: "node",
+            clientKey: "fetch",
+          },
+          hideModels: true,
+        });
       });
     </script>
   </body>
