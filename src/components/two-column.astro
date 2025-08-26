@@ -1,26 +1,30 @@
 ---
-import ArrowForward from "#assets/uswds/img/usa-icons/arrow_forward.svg";
+import Icon from "./icon.astro";
 
 type Props = {
     image: string;
     title: string;
-    button: string;
+    buttonTitle: string;
     buttonLink: string;
+    buttonUnstyled?: boolean;
     imageLast?: boolean;
+    icon?: boolean;
 };
 
 const {
     image,
     title,
-    button,
+    buttonTitle,
     buttonLink,
     imageLast,
+    buttonUnstyled,
+    icon,
 } = Astro.props;
 ---
 
-<div class="minw-15 padding-y-7 padding-x-3 grid-container">
+<div class="minw-15 padding-y-5 padding-x-3 grid-container">
     <div class="grid-row grid-gap-4 desktop:grid-gap-6 padding-y-7">
-        <div class={`tablet:grid-col display-flex flex-align-center tablet:flex-justify-center${imageLast ? " desktop:order-last" : ""}`}
+        <div class={`tablet:grid-col display-flex flex-align-center tablet:flex-justify-center${imageLast ? " desktop:order-last" : null}`}
         >
             <img class="width-auto height-full" src={image} alt="" />
         </div>
@@ -33,9 +37,9 @@ const {
                 <p>
                     <a
                         href={buttonLink}
-                        class="usa-button usa-button--unstyled"
-                        >{button}
-                        <ArrowForward class="text-white" />
+                        class={`usa-button${buttonUnstyled ? " usa-button--unstyled" : "" }`}
+                        >{buttonTitle}
+                    {icon ? <Icon icon="arrow_forward" color={`${buttonUnstyled ? "base-darkest" : "white"}`} size={3}/> : null}
                     </a>
                 </p>
             </div>

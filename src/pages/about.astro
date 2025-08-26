@@ -2,31 +2,25 @@
 import Link from "components/link.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import DataConsult from "#assets/images/data-consult.svg";
+import TwoColumn from "components/two-column.astro";
+import Pharmacist from "#assets/images/pharmacist.svg?url";
 import LogoAB2D from "#assets/images/logo-ab2d-sm.svg";
 import LogoBCDA from "#assets/images/logo-bcda.svg";
 import LogoDPC from "#assets/images/logo-dpc.svg";
 ---
 
-<BaseLayout title="About BCDA" description="" showSideNav={false} showInPageNav={false}>
-	<h1>About BCDA</h1>
-	<div class="grid-row grid-gap-4 flex-align-center">
-		<div class="tablet:grid-col-5 tablet:order-2 margin-y-2">
-			<DataConsult aria-label="data consult illustration" class="padding-x-4" />
-		</div>
-		<div class="tablet:grid-col tablet:order-1">
-			<p>
-				Blue Button 2.0 (BCDA) was released in February 2019 to
-				share Medicare Parts A, B, and D data, including from <Link href=""
-					>partially adjudicated claims</Link
-				>.
-			</p>
-			<p>
-				BCDA allows <Link href="#">eligible model entities</Link> to track performance
-				metrics, identify high-risk patients sooner, and improve transition of care.
-			</p>
-		</div>
-	</div>
+<BaseLayout title="About Blue Button" description="" showSideNav={false} showInPageNav={false}>
+	<TwoColumn
+		image={Pharmacist}
+		title=""
+		button=""
+		buttonLink=""
+		imageLast={true}>
+		<h1>About Blue Button</h1>
+		<p>
+			Blue Button 2.0 (BB2.0) API enables software developers to build trusted applications, services, and research programs that benefit Medicare enrollees. As a <a href="">standards-based API</a>, BB2.0 provides claims data for more than 64 million people with Medicare.
+		</p>
+	</TwoColumn>
 
 	<table class="usa-table usa-table--borderless usa-table--stacked">
 		<caption class="usa-sr-only"
@@ -59,53 +53,6 @@ import LogoDPC from "#assets/images/logo-dpc.svg";
 			</tr>
 		</tbody>
 	</table>
-
-	<h2>Claims data process</h2>
-
-	<ol class="usa-process-list margin-top-2 about-process-list">
-		<li class="usa-process-list__item about-connector">
-			<h4 class="usa-process-list__heading">Medicare enrollee receives care</h4>
-		</li>
-		<li class="usa-process-list__item">
-			<h4 class="usa-process-list__heading">Provider submits Medicare claim</h4>
-		</li>
-		<li class="usa-process-list__item">
-			<h4 class="usa-process-list__heading">
-				BCDA shares partially adjudicated claims data
-			</h4>
-			<p
-				class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1"
-			>
-				2-4 days after submission
-			</p>
-			<p>
-				Partially adjudicated claims haven’t been fully processed and approved
-				yet. BCDA updates this data daily from the Fiscal Intermediary Standard
-				System (FISS) and Multi-Carrier System (MCS).
-			</p>
-		</li>
-		<li class="usa-process-list__item">
-			<h4 class="usa-process-list__heading">Medicare approves the claims</h4>
-		</li>
-		<li class="usa-process-list__item about-final-item">
-			<h4 class="usa-process-list__heading">
-				BCDA shares adjudicated claims data
-			</h4>
-			<p
-				class="usa-intro font-ui-md text-bold text-italic text-base margin-top-1"
-			>
-				14 days after submission typically
-			</p>
-			<p>
-				BCDA updates adjudicated claims data weekly from the <Link
-					href="https://www2.ccwdata.org/web/guest/home"
-					target="_blank"
-					rel="noopener noreferrer"
-					>Chronic Conditions Data Warehouse (CCW)</Link
-				>.
-			</p>
-		</li>
-	</ol>
 
 	<h2>What are the other CMS claims-based FHIR APIs?</h2>
 

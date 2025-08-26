@@ -4,6 +4,7 @@ import "#assets/sass/styles.scss";
 import { getEntry } from "astro:content";
 import { render } from "astro:content";
 import Link from "components/link.astro";
+import TwoColumn from "components/two-column.astro";
 
 const entry = await getEntry("pages", "support");
 if (!entry) {
@@ -13,13 +14,14 @@ if (!entry) {
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title="Support" description="">
+<BaseLayout title="Support" description="" showSideNav={false} showInPageNav={false}>
 	<main id="main-content">
 		<h1>{entry.data.title}</h1>
 
 		<Content
 			components={{
 				a: Link,
+				TwoColumn,
 			}}
 		/>
 	</main>
