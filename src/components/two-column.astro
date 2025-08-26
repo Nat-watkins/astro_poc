@@ -4,6 +4,7 @@ import Icon from "./icon.astro";
 type Props = {
     image: string;
     title: string;
+    button?: boolean;
     buttonTitle: string;
     buttonLink: string;
     buttonUnstyled?: boolean;
@@ -14,6 +15,7 @@ type Props = {
 const {
     image,
     title,
+    button,
     buttonTitle,
     buttonLink,
     imageLast,
@@ -32,15 +34,18 @@ const {
             class="tablet:grid-col padding-top-4 tablet:padding-top-0 display-flex flex-align-center"
         >
             <div>
-                <h2 id="eligible-model-entities">{title}</h2>
+                <h2>{title}</h2>
                   <slot />
                 <p>
-                    <a
-                        href={buttonLink}
-                        class={`usa-button${buttonUnstyled ? " usa-button--unstyled" : "" }`}
-                        >{buttonTitle}
-                    {icon ? <Icon icon="arrow_forward" color={`${buttonUnstyled ? "base-darkest" : "white"}`} size={3}/> : null}
-                    </a>
+                    {button ? 
+                        <a
+                            href={buttonLink}
+                            class={`usa-button usa-button--outline${buttonUnstyled ? " usa-button--unstyled" : "" }`}
+                            >{buttonTitle}
+                        {icon ? <Icon icon="arrow_forward" color={`${buttonUnstyled ? "base-darkest" : "white"}`} size={3}/> : null}
+                        </a>
+                        : null
+                    }
                 </p>
             </div>
         </div>
