@@ -1,0 +1,75 @@
+<!-- 
+ ---
+interface Props {
+    tocItem: string;
+    tocLink: string;
+    tocCurrent?: boolean;
+}
+
+const { tocItem, tocLink, tocCurrent, } = Astro.props;
+--- 
+-->
+
+<!-- 
+<nav aria-label="On this page" class="usa-in-page-nav__nav" id="toc">
+    <h4 class="usa-in-page-nav__heading" tabindex="0">On this page</h4>
+    <ul class="usa-in-page-nav__list">
+        <li class="usa-in-page-nav__item usa-in-page-nav__item--primary">
+            <a href={tocLink} 
+                class={`usa-in-page-nav__link${tocCurrent ? " usa-current" : ""}`}
+            >{tocItem}</a>
+        </li>
+    </ul>
+</nav> 
+-->
+
+<div
+    class="display-none position-sticky tablet:display-block tablet:grid-col-auto overflow-y-auto overflow-x-hidden padding-top-5 desktop:padding-top-5 padding-bottom-6 tablet:padding-right-3 padding-left-05 margin-left-neg-05"
+    style="top: 4rem; height: calc(100vh - 4.5rem);"
+>
+    <div class="grid-col-auto maxw-order-last margin-left-auto">
+        <aside
+            style="top: 5.75rem; height: calc(100vh - 6rem);"
+            class="margin-top-0 overflow-y-auto width-card"
+            id="toc"
+        >
+            <nav aria-label="On this page" class=""usa-in-page-nav__nav>
+                <h4 class="usa-in-page-nav__heading" tabindex="0">On this page</h4>
+                <ul id="toc-list" class="usa-in-page-nav__list">
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const main = document.getElementById("main-content");
+        if (!main) return;
+
+        const headings = main.querySelectorAll(" h2, h3 ");
+        const tocList = document.getElementById("toc-list");
+
+        if (!tocList) return;
+
+        headings.forEach((heading) => {
+            if (!heading.id) {
+                heading.id = heading.textContent
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")
+                    .replace(/[^\w-]/g, "");
+            }
+
+            const li = document.createElement("li");
+            li.classList.add("usa-in-page-nav__item");
+
+            const link = document.createElement("a");
+            link.href = `#${heading.id}`;
+            link.textContent = heading.textContent;
+            link.classList.add("usa-in-page-nav__link")
+
+            li.appendChild(link);
+            tocList.appendChild(li);
+        });
+    });
+</script>
