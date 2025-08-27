@@ -12,10 +12,10 @@ if (!entry) {
 	throw new Error("Page not found");
 }
 
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 ---
 
-<BaseLayout title="Production Access" description="">
+<BaseLayout title="Production Access" description="" headings={headings} showSideNav={false}>
 	<main id="main-content">
 		<h1>{entry.data.title}</h1>
 
