@@ -48,6 +48,42 @@ const { headings = [] } = Astro.props;
     </div>
 </div>
 
+<script>
+    function showRootMargin(rootMargin: string) {
+        const visualizerEl = document.createElement("div");
+        visualizerEl.style.position = "fixed";
+        visualizerEl.style.pointerEvents = "none";
+        visualizerEl.style.border = "2px dashed red";
+        visualizerEl.style.zIndex = "9999";
+
+        function update() {
+            const margins = rootMargin
+                .split(" ")
+                .map((v) => Number.parseInt(v, 10));
+            const [top, right, bottom, left] =
+                margins.length === 1
+                    ? [margins[0], margins[0], margins[0], margins[0]]
+                    : margins.length === 2
+                      ? [margins[0], margins[1], margins[0], margins[1]]
+                      : margins.length === 3
+                        ? [margins[0], margins[1], margins[2], margins[1]]
+                        : margins;
+
+            visualizerEl.style.top = -top + "px";
+            visualizerEl.style.left = -left + "px";
+            visualizerEl.style.width = window.innerWidth + left + right + "px";
+            visualizerEl.style.height =
+                window.innerHeight + top + bottom + "px";
+        }
+
+        update();
+        window.addEventListener("resize", update);
+        document.body.appendChild(visualizerEl);
+    }
+
+    showRootMargin("-100px 0px");
+</script>
+
 <!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
         const main = document.getElementById("main-content");
