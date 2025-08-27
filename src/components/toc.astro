@@ -81,7 +81,8 @@ const { headings = [] } = Astro.props;
         document.body.appendChild(visualizerEl);
     }
 
-    showRootMargin("-100px 0px");
+    const rootMargin = "-100px 0px";
+    showRootMargin(rootMargin);
 </script>
 
 <!-- <script>
