@@ -6,6 +6,7 @@ import Browsers from "#assets/images/browsers.svg?url";
 import Home from "#assets/images/home.svg?url";
 import Whiteboard from "#assets/images/whiteboard.svg?url";
 import TwoColumn from "components/two-column.astro";
+import Button from "#components/button.astro";
 
 ---
 
@@ -21,33 +22,27 @@ import TwoColumn from "components/two-column.astro";
         heading="For Developers"
         img={Browsers}
         body="Explore the developer sandbox to build amazing tools and services with the Blue Button 2.0 API."
-        button="Sign up for the developer sandbox"
-        buttonLink=""
+        footer="Sign up for the developer sandbox"
+        footerLink=""
       />
       <Card
         heading="For Organizations"
         img={Whiteboard}
         body="Discover how your company or organization could use Blue Button 2.0."
-        button="See the power of Blue Button 2.0"
-        buttonLink=""
+        footer="See the power of Blue Button 2.0"
+        footerLink=""
       />
       <Card
         heading="For People with Medicare"
         img={Home}
         body="Learn about Medicare's Blue Button & find apps you can use."
-        button="Get Blue Button details on Medicare.gov"
-        buttonLink=""
+        footer="Get Blue Button details on Medicare.gov"
+        footerLink=""
       />
     </ul>
     <TwoColumn
       image={Whiteboard}
       title="Value for organizations"
-      button={true}
-      buttonUnstyled={true}
-      buttonTitle="View the documentation"
-      buttonLink=""
-      imageLast={false}
-      icon={true}
     >
       <h3>What does Blue Button 2.0 allow you to do?</h3>
       <p>
@@ -66,16 +61,14 @@ import TwoColumn from "components/two-column.astro";
         Learn more about using Blue Button 2.0, or go ahead and create your
         Sandbox account to explore our sample data.
       </p>
+      <p>
+          <Button link="">View Documentation</Button>
+      </p>
     </TwoColumn>
     <TwoColumn
       image={Home}
       title="Value for people with Medicare"
-      button={true}
-      buttonUnstyled={true}
-      buttonTitle="View the Blue Button apps"
-      buttonLink=""
       imageLast={true}
-      icon={true}
     >
       <h3>What does Blue Button 2.0 allow you to do?</h3>
       <p>
@@ -92,6 +85,9 @@ import TwoColumn from "components/two-column.astro";
       <p>
         Follow the link below to learn about the third-party applications using
         Blue Button.
+      </p>
+      <p>
+          <Button link="">View Blue Button apps</Button>
       </p>
     </TwoColumn>
   </main>

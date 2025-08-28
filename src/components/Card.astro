@@ -3,11 +3,11 @@ type Props = {
   heading: string;
   img: string;
   body: string;
-  button: string;
-  buttonLink: string;
+  footer: string;
+  footerLink: string;
 };
 
-const { heading, img, body, button, buttonLink } =
+const { heading, img, body, footer, footerLink } =
   Astro.props;
 ---
   <li class="usa-card tablet:grid-col-6 desktop:grid-col-4">
@@ -25,10 +25,10 @@ const { heading, img, body, button, buttonLink } =
       </div>
       <div class="usa-card__footer">
         <a
-          href={buttonLink}
+          href={footerLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="usa-button">{button}</a
+          class="usa-button">{footer}</a
         >
       </div>
     </div>

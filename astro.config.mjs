@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bcda.cms.gov',
+  site: 'https://bluebutton.cms.gov',
 
   vite: {
     css: {
