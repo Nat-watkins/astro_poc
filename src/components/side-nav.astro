@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Link from "./link.astro";
+import Icon from "./icon.astro";
+import Button from "./button.astro";
 
 const { pathname } = Astro.url;
 
@@ -78,7 +80,20 @@ const datanavLinks = dataDocs.map((doc) => ({
         </ul>
         <li class="usa-sidenav__item">
           <a href="/" data-tealium="left-rail">
-            <span>Swagger + Icon</span>
+            <span>
+              GitHub
+              <Icon icon="github" color="base-darkest" size={3}>
+              </Icon>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/" data-tealium="left-rail">
+            <span>
+              Swagger
+              <Icon icon="swagger" color="base-darkest" size={3}>
+              </Icon>
+            </span>
           </a>
         </li>
       </ul>
