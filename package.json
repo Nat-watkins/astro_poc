@@ -18,12 +18,13 @@
     "astro": "^5.7.5",
     "astro-seo": "^0.8.4",
     "class-variance-authority": "^0.7.1",
+    "astro-typesafe-routes": "^5.0.0",
     "sass": "^1.86.3"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.4",
     "@uswds/compile": "^1.2.2",
     "gulp": "^5.0.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }

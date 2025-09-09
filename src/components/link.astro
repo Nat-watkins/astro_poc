@@ -1,13 +1,30 @@
 ---
 import LaunchSvg from "#assets/uswds/img/usa-icons/launch.svg";
+import type { RouteId } from "astro-typesafe-routes/path";
+import type { RouteOptions } from "astro-typesafe-routes/path";
+import { $path } from "astro-typesafe-routes/path";
 
-interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
-  showIcon?: boolean;
-}
+type Props<T extends RouteId> = Omit<
+  astroHTML.JSX.AnchorHTMLAttributes,
+  "href"
+> &
+  RouteOptions<T> & {
+    showIcon?: boolean;
+  };
 
-const { href, showIcon = true, ...props } = Astro.props;
+const {
+  to,
+  params,
+  search,
+  searchParams,
+  hash,
+  trailingSlash,
+  showIcon = true,
+  ...props
+} = Astro.props;
 const site = Astro.site;
 
+const href = $path({ to, params, search, searchParams, hash, trailingSlash });
 let isExternal = false;
 try {
   const { hostname } = new URL(href || "");
