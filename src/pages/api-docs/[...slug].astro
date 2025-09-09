@@ -1,4 +1,5 @@
 ---
+import Link from "#components/link.astro";
 import { getCollection, render } from "astro:content";
 import BaseLayout from "layouts/BaseLayout.astro";
 // 1. Generate a new path for every collection entry
@@ -15,5 +16,9 @@ const { Content, headings } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description="" headings={headings}>
-  <Content />
+  <Content
+    components={{
+      a: Link,
+    }}
+  />
 </BaseLayout>

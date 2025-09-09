@@ -3,6 +3,9 @@ import { getCollection } from "astro:content";
 import Link from "./link.astro";
 import Icon from "./icon.astro";
 import Button from "./button.astro";
+import type { RouteId, RouteOptions } from "astro-typesafe-routes/path";
+
+type RoutesArray<T extends RouteId> = (RouteOptions<T> & Record<string, any>)[];
 
 const { pathname } = Astro.url;
 
@@ -10,17 +13,23 @@ const apiDocs = (await getCollection("apiDocs")).sort(
   (a, b) => a.data.sortOrder - b.data.sortOrder,
 );
 const docsnavLinks = apiDocs.map((doc) => ({
+  to: "/api-docs/[...slug]",
+  params: {
+    slug: doc.id,
+  },
   label: doc.data.title,
-  href: `/api-docs/${doc.id}`,
-}));
+})) satisfies RoutesArray<"/api-docs/[...slug]">;
 
 const dataDocs = (await getCollection("dataDocs")).sort(
   (a, b) => a.data.sortOrder - b.data.sortOrder,
 );
 const datanavLinks = dataDocs.map((doc) => ({
+  to: "/data/[...slug]",
+  params: {
+    slug: doc.id,
+  },
   label: doc.data.title,
-  href: `/data/${doc.id}`,
-}));
+})) satisfies RoutesArray<"/data/[...slug]">;
 ---
 
 <div
@@ -31,21 +40,22 @@ const datanavLinks = dataDocs.map((doc) => ({
     <nav aria-label="Side navigation">
       <ul class="usa-sidenav">
         <li class="usa-sidenav__item">
-          <a
-            href="/api-documentation"
+          <Link
+            to="/api-documentation"
             class="if current page"
             data-tealium="left-rail"
           >
             Get Started
-          </a>
+          </Link>
         </li>
         <ul class="usa-sidenav__sublist">
           {
             docsnavLinks.map((link) => (
               <li class="usa-sidenav__item">
                 <Link
-                  href={link.href}
-                  class={pathname.startsWith(link.href) ? "usa-current" : null}
+                  to={link.to}
+                  params={link.params}
+                  class={pathname.startsWith(link.to) ? "usa-current" : null}
                   data-tealium="left-rail"
                 >
                   {link.label}
@@ -55,21 +65,16 @@ const datanavLinks = dataDocs.map((doc) => ({
           }
         </ul>
         <li class="usa-sidenav__item">
-          <a
-            href="/data"
-            class="if current page"
-            data-tealium="left-rail"
-          >
-            Data
-          </a>
+          <Link to="/about" data-tealium="left-rail"> Data </Link>
         </li>
         <ul class="usa-sidenav__sublist">
           {
             datanavLinks.map((link) => (
               <li class="usa-sidenav__item">
                 <Link
-                  href={link.href}
-                  class={pathname.startsWith(link.href) ? "usa-current" : null}
+                  to={link.to}
+                  params={link.params}
+                  class={pathname.startsWith(link.to) ? "usa-current" : null}
                   data-tealium="left-rail"
                 >
                   {link.label}
@@ -79,22 +84,20 @@ const datanavLinks = dataDocs.map((doc) => ({
           }
         </ul>
         <li class="usa-sidenav__item">
-          <a href="/" data-tealium="left-rail">
+          <Link href="/" isExternal data-tealium="left-rail">
             <span>
               GitHub
-              <Icon icon="github" color="base-darkest" size={3}>
-              </Icon>
+              <Icon icon="github" color="base-darkest" size={3} />
             </span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/" data-tealium="left-rail">
+          <Link href="/" isExternal data-tealium="left-rail">
             <span>
               Swagger
-              <Icon icon="swagger" color="base-darkest" size={3}>
-              </Icon>
+              <Icon icon="swagger" color="base-darkest" size={3} />
             </span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

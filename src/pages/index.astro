@@ -1,16 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "components/hero.astro";
-import Card from "components/card.astro";
+import Hero from "#components/Hero.astro";
+import Card from "#components/Card.astro";
 import Browsers from "#assets/images/browsers.svg?url";
 import Home from "#assets/images/home.svg?url";
 import Whiteboard from "#assets/images/whiteboard.svg?url";
-import TwoColumn from "components/two-column.astro";
+import TwoColumn from "#components/two-column.astro";
 import Button from "#components/button.astro";
-
 ---
 
-<BaseLayout title="Blue Button 2.0 (BB2)" description="" showSideNav={false} showInPageNav={false}>
+<BaseLayout
+  title="Blue Button 2.0 (BB2)"
+  description=""
+  showSideNav={false}
+  showInPageNav={false}
+>
   <main id="main-content">
     <Hero
       h1="CMS BlueButton 2.0"
@@ -40,10 +44,7 @@ import Button from "#components/button.astro";
         footerLink=""
       />
     </ul>
-    <TwoColumn
-      image={Whiteboard}
-      title="Value for organizations"
-    >
+    <TwoColumn image={Whiteboard} title="Value for organizations">
       <h3>What does Blue Button 2.0 allow you to do?</h3>
       <p>
         Whether you are a health plan market place, a non-profit research
@@ -62,7 +63,7 @@ import Button from "#components/button.astro";
         Sandbox account to explore our sample data.
       </p>
       <p>
-          <Button link="">View Documentation</Button>
+        <Button link="">View Documentation</Button>
       </p>
     </TwoColumn>
     <TwoColumn
@@ -87,7 +88,7 @@ import Button from "#components/button.astro";
         Blue Button.
       </p>
       <p>
-          <Button link="">View Blue Button apps</Button>
+        <Button link="">View Blue Button apps</Button>
       </p>
     </TwoColumn>
   </main>

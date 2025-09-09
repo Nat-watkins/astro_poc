@@ -26,6 +26,7 @@ const {
 } = Astro.props;
 const site = Astro.site;
 
+let computedIsExternal = isExternal;
 const computedHref = $path({
   to,
   params,
@@ -35,22 +36,28 @@ const computedHref = $path({
   trailingSlash,
 });
 
-const { hostname } = new URL(href || "");
-if (hostname === site?.hostname) {
-  throw new Error(
-    `${href} is an internal link! Use 'to' instead of 'href' and unset 'isExternal'.`,
-  );
+if (href) {
+  try {
+    const { hostname } = new URL(href || "");
+    if (hostname === site?.hostname) {
+      throw new Error(
+        `${href} is an internal link! Use 'to' instead of 'href' and unset 'isExternal'.`,
+      );
+    }
+  } catch {
+    computedIsExternal = true;
+  }
 }
 ---
 
 <a
   href={computedHref || href}
-  target={isExternal ? "_blank" : undefined}
-  rel={isExternal ? "noopener" : undefined}
+  target={computedIsExternal ? "_blank" : undefined}
+  rel={computedIsExternal ? "noopener" : undefined}
   {...props}
 >
   <slot />{
-    isExternal && showIcon ? (
+    computedIsExternal && showIcon ? (
       <LaunchSvg
         height={16}
         width={16}

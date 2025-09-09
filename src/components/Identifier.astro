@@ -15,7 +15,7 @@ import { IDENTIFIER_LINKS } from "utils/constants";
         <Link
           href="https://www.hhs.gov/"
           showIcon={false}
-          isExternal={true}
+          isExternal
           class="usa-identifier__logo"
         >
           <LogoHHS
@@ -26,7 +26,7 @@ import { IDENTIFIER_LINKS } from "utils/constants";
         <Link
           href="https://www.cms.gov/"
           showIcon={false}
-          isExternal={true}
+          isExternal
           class="usa-identifier__logo"
           ><LogoCMS
             class="usa-identifier__logo-img padding-x-2"
@@ -38,10 +38,10 @@ import { IDENTIFIER_LINKS } from "utils/constants";
         <p class="usa-identifier__identity-domain">cms.gov</p>
         <p class="usa-identifier__identity-disclaimer">
           <span aria-hidden="true">An </span>official website of the
-          <Link href="https://www.hhs.gov/" isExternal={true}
+          <Link href="https://www.hhs.gov/" isExternal
             >U.S. Department of Health and Human Services</Link
           > and the
-          <Link href="https:www.cms.gov" isExternal={true}
+          <Link href="https:www.cms.gov" isExternal
             >Centers for Medicare & Medicaid Services</Link
           >.
         </p>
@@ -59,7 +59,7 @@ import { IDENTIFIER_LINKS } from "utils/constants";
             <li class="usa-identifier__required-links-item">
               <Link
                 href={link.href}
-                isExternal={true}
+                isExternal
                 class="usa-identifier__required-link usa-link"
               >
                 {link.label}
@@ -78,7 +78,7 @@ import { IDENTIFIER_LINKS } from "utils/constants";
       <div class="usa-identifier__usagov-description">
         Looking for U.S. government information and services?
       </div>
-      <Link href="https://www.usa.gov/" isExternal={true} class="usa-link"
+      <Link href="https://www.usa.gov/" isExternal class="usa-link"
         >Visit USA.gov</Link
       >
     </div>
