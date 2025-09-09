@@ -1,9 +1,8 @@
 ---
-import Banner from "#components/banner.astro";
-import Header from "#components/header.astro";
-import Footer from "#components/footer.astro";
-import Identifier from "#components/identifier.astro";
-import Link from "components/link.astro";
+import Banner from "#components/Banner.astro";
+import Header from "#components/Header.astro";
+import Footer from "#components/Footer.astro";
+import Identifier from "#components/Identifier.astro";
 import SideNav from "components/side-nav.astro";
 import InPageNav from "components/in-page-nav.astro";
 import { SEO } from "astro-seo";
@@ -84,8 +83,8 @@ const {
     <script src="#assets/uswds/js/uswds-init.js"></script>
 
     <body id="page-top">
-        <Link class="usa-skipnav z-top" href="#main-content"
-            >Skip to main content</Link
+        <a class="usa-skipnav z-top" href="#main-content"
+            >Skip to main content</a
         >
         <Banner />
         <div class="position-relative">

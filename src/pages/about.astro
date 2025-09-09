@@ -8,14 +8,19 @@ import LogoBCDA from "#assets/images/logo-bcda.svg";
 import LogoDPC from "#assets/images/logo-dpc.svg";
 ---
 
-<BaseLayout title="About Blue Button" description="" showSideNav={false} showInPageNav={false}>
-	<TwoColumn
-		image={Pharmacist}
-		title=""	
-		imageLast={true}>
+<BaseLayout
+	title="About Blue Button"
+	description=""
+	showSideNav={false}
+	showInPageNav={false}
+>
+	<TwoColumn image={Pharmacist} title="" imageLast={true}>
 		<h1>About Blue Button</h1>
 		<p>
-			Blue Button 2.0 (BB2.0) API enables software developers to build trusted applications, services, and research programs that benefit Medicare enrollees. As a <a href="">standards-based API</a>, BB2.0 provides claims data for more than 64 million people with Medicare.
+			Blue Button 2.0 (BB2.0) API enables software developers to build trusted
+			applications, services, and research programs that benefit Medicare
+			enrollees. As a <a href="">standards-based API</a>, BB2.0 provides claims
+			data for more than 64 million people with Medicare.
 		</p>
 	</TwoColumn>
 
@@ -74,8 +79,7 @@ import LogoDPC from "#assets/images/logo-dpc.svg";
 				<div class="usa-card__footer">
 					<Link
 						href="https://ab2d.cms.gov/"
-						target="_blank"
-						rel="noopener noreferrer"
+						isExternal={true}
 						class="usa-button">Visit AB2D</Link
 					>
 				</div>
@@ -93,14 +97,15 @@ import LogoDPC from "#assets/images/logo-dpc.svg";
 				</div>
 				<div class="usa-card__body">
 					<p>
-						The Beneficiary Claims Data API (BCDA) helps Alternative Payment Model participants provide high-quality, coordinated care by making it easier to access bulk Medicare Parts A, B, and D claims data.
+						The Beneficiary Claims Data API (BCDA) helps Alternative Payment
+						Model participants provide high-quality, coordinated care by making
+						it easier to access bulk Medicare Parts A, B, and D claims data.
 					</p>
 				</div>
 				<div class="usa-card__footer">
 					<Link
 						href="https://bcda.cms.gov/"
-						target="_blank"
-						rel="noopener noreferrer"
+						isExternal={true}
 						class="usa-button">Visit BCDA</Link
 					>
 				</div>
@@ -124,11 +129,8 @@ import LogoDPC from "#assets/images/logo-dpc.svg";
 					</p>
 				</div>
 				<div class="usa-card__footer">
-					<Link
-						href="https://dpc.cms.gov/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="usa-button">Visit DPC</Link
+					<Link href="https://dpc.cms.gov/" isExternal={true} class="usa-button"
+						>Visit DPC</Link
 					>
 				</div>
 			</div>
