@@ -1,7 +1,7 @@
 ---
 import Link from "#components/link.astro";
 import { getCollection, render } from "astro:content";
-import BaseLayout from "layouts/BaseLayout.astro";
+import DocsLayout from "layouts/DocsLayout.astro";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection("apiDocs");
@@ -15,10 +15,10 @@ const { post } = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} description="" headings={headings}>
+<DocsLayout title={post.data.title} description="" headings={headings}>
   <Content
     components={{
       a: Link,
     }}
   />
-</BaseLayout>
+</DocsLayout>

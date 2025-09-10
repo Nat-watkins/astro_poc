@@ -57,9 +57,26 @@ const datanavLinks = dataDocs.map((doc) => ({
         </button>
         <ul class="usa-nav__primary usa-accordion">
           <li class="usa-nav__primary-item">
-            <Link to="/about" class="usa-nav-link" data-tealium="navigation">
+            <button
+              type="button"
+              class="usa-accordion__button usa-nav__link"
+              aria-expanded="false"
+              aria-controls="basic-nav-section-zero"
+            >
               <span>About</span>
-            </Link>
+            </button>
+            <ul id="basic-nav-section-zero" class="usa-nav__submenu" hidden>
+              <li class="usa-nav__submenu-item">
+                <Link to="/about" class="" data-tealium="main_nav">
+                 About
+                </Link>
+              </li>
+              <li class="usa-nav__submenu-item">
+                <Link to="/use-cases" class="" data-tealium="main_nav">
+                 Use Cases
+                </Link>
+              </li>
+            </ul>
           </li>
           <li class="usa-nav__primary-item">
             <button
